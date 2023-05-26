@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="PdfCreator.Editor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+    <application
+        android:name="com.PdfCreator.Editor.PrefsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon">
+
+        <activity
+            android:name="com.PdfCreator.Editor.ui.AddSignature"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.PdfFilesHistory"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.PermissionSceen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.PdfImages"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.DisplayClickedImageActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.FolderFiles"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.HomeScreen"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+
+        <activity
+            android:name="com.PdfCreator.Editor.ui.ImageEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.PdfCreator.Editor.ui.SplashScreen"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.image.document.scanner.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileproviderpaths" />
+        </provider>
+
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_app_icon" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
+
+        <!--  <meta-data
+              android:name="applovin.sdk.key"
+              android:value="alP1zWwOO3JqIlV0hdfTsyEuG46c6GFELkkWy-wBkgTiOmw3oLfMq6QlFeRkBxra44Gz6p1CkvZrNuTe5TUVCU" />-->
+    </application>
+    <!-- for issue of camera opening in EasyImage lib-->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+</manifest>
